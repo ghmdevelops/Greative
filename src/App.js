@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -46,48 +46,47 @@ function App() {
 
   return (
     <div className="app-container">
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/sala/:id"
-            element={
-              <PrivateRoute>
-                <SalaDetalhe />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/perfil"
-            element={
-              <PrivateRoute>
-                <Perfil />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/dashboard/:id"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/recuperar" element={<RecuperarSenha />} />
-        </Routes>
-        <Footer />
-      </Router>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/sala/:id"
+          element={
+            <PrivateRoute>
+              <SalaDetalhe />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/perfil"
+          element={
+            <PrivateRoute>
+              <Perfil />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/:id"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/welcome" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro />} />
+        <Route path="/recuperar" element={<RecuperarSenha />} />
+      </Routes>
+      <Footer />
+    </Router>
     </div>
   );
 }
