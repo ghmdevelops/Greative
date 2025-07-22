@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiLogIn, FiUserPlus } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 function LandingPage() {
   return (
     <div
-      className="landing-page min-vh-100 d-flex flex-column"
+      className="landing-page min-vh-100 d-flex flex-column position-relative"
       style={{
         background: "linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%)",
         color: "#fff",
@@ -104,6 +105,29 @@ function LandingPage() {
           </section>
         </div>
       </main>
+
+      {/* Botão flutuante do WhatsApp */}
+      <a
+        href="https://wa.me/5599999999999" // Substitua com seu número com DDI e DDD
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          zIndex: 9999,
+          backgroundColor: "#25D366",
+          borderRadius: "50%",
+          width: "60px",
+          height: "60px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+        }}
+      >
+        <FaWhatsapp size={30} color="#fff" />
+      </a>
     </div>
   );
 }
