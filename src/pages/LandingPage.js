@@ -1,133 +1,173 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiLogIn, FiUserPlus } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function LandingPage() {
+  const handleAgendar = () => {
+    console.log("Usuário clicou em Agendar Demonstração");
+    alert("Obrigado! Entraremos em contato em breve. 😊");
+  };
+
+  const handleFaqClick = (pergunta) => {
+    console.log("Pergunta visualizada:", pergunta);
+  };
+
+  const handleContatoWhats = () => {
+    window.open("https://wa.me/5599999999999", "_blank");
+  };
+
   return (
     <div
-      className="landing-page min-vh-100 d-flex flex-column position-relative"
+      className="landing-page min-vh-100 d-flex flex-column"
       style={{
         background: "linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%)",
         color: "#fff",
+        position: "relative",
       }}
     >
+      {/* Header */}
       <header className="bg-transparent py-4 shadow-sm">
         <div className="container d-flex justify-content-between align-items-center">
           <h3 className="fw-bold m-0">Greative</h3>
           <div className="d-flex gap-3">
-            <Link
-              to="/login"
-              className="btn btn-outline-light d-flex align-items-center fw-semibold"
-              style={{ borderRadius: "50px", padding: "0.5rem 1.5rem" }}
-            >
+            <Link to="/login" className="btn btn-outline-light d-flex align-items-center fw-semibold">
               <FiLogIn size={20} />
-              <span className="d-none d-md-inline ms-2">Login</span>
+              <span className="ms-2">Login</span>
             </Link>
-            <Link
-              to="/registro"
-              className="btn btn-light text-primary d-flex align-items-center fw-bold"
-              style={{ borderRadius: "50px", padding: "0.5rem 1.8rem" }}
-            >
+            <Link to="/registro" className="btn btn-light text-primary d-flex align-items-center fw-bold">
               <FiUserPlus size={20} />
-              <span className="d-none d-md-inline ms-2">Criar Conta</span>
+              <span className="ms-2">Criar Conta</span>
             </Link>
           </div>
         </div>
       </header>
 
-      <main className="flex-fill d-flex justify-content-center align-items-center">
-        <div className="container text-center px-3 px-md-5">
-          <h1
-            className="display-4 fw-bold mb-3"
-            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.3)" }}
-          >
-            Transforme seu espaço com tecnologia inteligente
-          </h1>
-          <p
-            className="lead mb-5"
-            style={{
-              maxWidth: "600px",
-              margin: "0 auto",
-              textShadow: "0 1px 4px rgba(0,0,0,0.2)",
-            }}
-          >
-            Monitore temperatura, umidade, amônia e muito mais com dashboards
-            intuitivos e análises em tempo real.
+      {/* Hero */}
+      <main className="flex-fill d-flex align-items-center text-center px-3">
+        <div className="container">
+          <h1 className="display-4 fw-bold mb-3">Transforme seu espaço com tecnologia inteligente</h1>
+          <p className="lead mb-4 mx-auto" style={{ maxWidth: "600px" }}>
+            Monitore temperatura, umidade, amônia e muito mais com dashboards intuitivos e análises em tempo real.
           </p>
-          <Link
-            to="/registro"
-            className="btn btn-light btn-lg fw-bold px-5 shadow"
-            style={{ borderRadius: "50px" }}
-          >
-            Comece Agora
-          </Link>
-
-          <section className="d-flex flex-wrap justify-content-center mt-5 gap-4">
-            <div
-              className="bg-white bg-opacity-10 rounded-4 p-4 flex-grow-1"
-              style={{
-                maxWidth: "220px",
-                minWidth: "180px",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-              }}
-            >
-              <i className="bi bi-thermometer-half fs-1 mb-3"></i>
-              <h5>Monitoramento Preciso</h5>
-              <p className="small">
-                Dados confiáveis para decisões eficientes.
-              </p>
-            </div>
-            <div
-              className="bg-white bg-opacity-10 rounded-4 p-4 flex-grow-1"
-              style={{
-                maxWidth: "220px",
-                minWidth: "180px",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-              }}
-            >
-              <i className="bi bi-bar-chart-line fs-1 mb-3"></i>
-              <h5>Dashboards Inteligentes</h5>
-              <p className="small">Visualize tudo de forma clara e prática.</p>
-            </div>
-            <div
-              className="bg-white bg-opacity-10 rounded-4 p-4 flex-grow-1"
-              style={{
-                maxWidth: "220px",
-                minWidth: "180px",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-              }}
-            >
-              <i className="bi bi-phone fs-1 mb-3"></i>
-              <h5>Acesso em qualquer lugar</h5>
-              <p className="small">Use no desktop, tablet ou celular.</p>
-            </div>
-          </section>
+          <button onClick={handleAgendar} className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill">
+            Agendar Demonstração
+          </button>
         </div>
       </main>
 
-      {/* Botão flutuante do WhatsApp */}
-      <a
-        href="https://wa.me/5599999999999" // Substitua com seu número com DDI e DDD
-        target="_blank"
-        rel="noopener noreferrer"
+      {/* Destaques */}
+      <section className="container my-5 text-center">
+        <div className="row g-4">
+          <div className="col-md-4">
+            <div className="bg-white bg-opacity-10 rounded-4 p-4">
+              <i className="bi bi-thermometer-half fs-1 mb-3"></i>
+              <h5>Monitoramento Preciso</h5>
+              <p>Dados confiáveis para decisões eficientes.</p>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="bg-white bg-opacity-10 rounded-4 p-4">
+              <i className="bi bi-bar-chart-line fs-1 mb-3"></i>
+              <h5>Dashboards Inteligentes</h5>
+              <p>Visualize tudo de forma clara e prática.</p>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="bg-white bg-opacity-10 rounded-4 p-4">
+              <i className="bi bi-phone fs-1 mb-3"></i>
+              <h5>Acesso Remoto</h5>
+              <p>Use no desktop, tablet ou celular.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos */}
+      <section className="bg-white text-dark py-5">
+        <div className="container text-center">
+          <h2 className="fw-bold mb-4">O que nossos clientes dizem</h2>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <div className="p-3 border rounded">
+                <p>“Simplesmente revolucionário! Hoje tomo decisões com base em dados confiáveis.”</p>
+                <strong>— João L., Produtor</strong>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="p-3 border rounded">
+                <p>“Acesso fácil pelo celular e suporte excelente. Recomendo muito!”</p>
+                <strong>— Carla M., Técnica</strong>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="p-3 border rounded">
+                <p>“A solução perfeita para controlar o ambiente dos meus animais.”</p>
+                <strong>— Sérgio A., Zootecnista</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="container my-5">
+        <h2 className="text-center fw-bold mb-4">Perguntas Frequentes</h2>
+        <div className="accordion" id="faqAccordion">
+          {[
+            { pergunta: "Preciso de internet para usar?", resposta: "Sim, é necessário ter uma conexão com a internet para enviar os dados em tempo real." },
+            { pergunta: "Funciona em áreas rurais?", resposta: "Sim! Basta ter conexão com a internet via Wi-Fi ou 4G." },
+            { pergunta: "Qual o custo mensal?", resposta: "Temos planos a partir de R$39,90. Você escolhe conforme sua necessidade." }
+          ].map((item, index) => (
+            <div className="accordion-item" key={index}>
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${index}`}
+                  onClick={() => handleFaqClick(item.pergunta)}
+                >
+                  {item.pergunta}
+                </button>
+              </h2>
+              <div id={`collapse${index}`} className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div className="accordion-body">{item.resposta}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Rodapé */}
+      <footer className="bg-dark text-white text-center py-4 mt-auto">
+        <div className="container">
+          <p className="mb-1">&copy; {new Date().getFullYear()} Greative. Todos os direitos reservados.</p>
+          <small>
+            <a href="/privacidade" className="text-white text-decoration-underline me-2">Política de Privacidade</a>
+            <a href="/termos" className="text-white text-decoration-underline">Termos de Uso</a>
+          </small>
+        </div>
+      </footer>
+
+      {/* Botão flutuante WhatsApp */}
+      <button
+        onClick={handleContatoWhats}
         style={{
           position: "fixed",
           bottom: "20px",
           right: "20px",
-          zIndex: 9999,
-          backgroundColor: "#25D366",
           borderRadius: "50%",
+          backgroundColor: "#25D366",
+          border: "none",
           width: "60px",
           height: "60px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+          zIndex: 1000,
         }}
       >
-        <FaWhatsapp size={30} color="#fff" />
-      </a>
+        <i className="bi bi-whatsapp text-white fs-3"></i>
+      </button>
     </div>
   );
 }
