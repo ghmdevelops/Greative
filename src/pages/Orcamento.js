@@ -71,7 +71,7 @@ export default function Orcamento() {
       className="landing-page min-vh-100 d-flex flex-column"
       style={{
         background: "linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%)",
-        color: "#fff",
+        color: "#000",
         position: "relative",
       }}
     >

@@ -1,7 +1,9 @@
 import { BsWhatsapp } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiLogIn, FiUserPlus } from "react-icons/fi";
+import { FiLogIn, FiUserPlus, FiCalendar } from "react-icons/fi";
+import { FaRegMoneyBillAlt } from "react-icons/fa";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function LandingPage() {
@@ -61,15 +63,17 @@ function LandingPage() {
           <div className="d-flex flex-wrap justify-content-center gap-3 mt-4">
             <button
               onClick={handleAgendar}
-              className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill"
+              className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill d-flex align-items-center gap-2"
             >
+              <FiCalendar size={22} />
               Agendar Demonstração
             </button>
 
             <Link
               to="/orcamento"
-              className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill text-decoration-none"
+              className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill text-decoration-none d-flex align-items-center gap-2"
             >
+              <FaRegMoneyBillAlt size={22} />
               Solicitar Orçamento
             </Link>
           </div>
