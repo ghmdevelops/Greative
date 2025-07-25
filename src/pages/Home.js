@@ -15,6 +15,7 @@ function Home() {
   const auth = getAuth();
   const [theme, setTheme] = useState("light");
   const [avatarURL, setAvatarURL] = useState(null);
+  const [nomeCompleto, setNomeCompleto] = useState("");
 
   useEffect(() => {
     if (!usuario) return;
@@ -65,12 +66,36 @@ function Home() {
     }
   };
 
+  useEffect(() => {
+    if (!usuario) return;
+
+    const userRef = dbRef(db, `users/${usuario.uid}/perfil`);
+
+    get(userRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const dados = snapshot.val();
+          setAvatarURL(dados.fotoURL || null);
+          const nome = dados.nome || "";
+          const sobrenome = dados.sobrenome || "";
+          const apelido = dados.apelido || "";
+          setNomeCompleto(`${apelido}`.trim());
+        } else {
+          setAvatarURL(null);
+          setNomeCompleto("");
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar dados do usuário:", error);
+      });
+  }, [usuario]);
+
   const toggleVariant = theme === "dark" ? "light" : "dark";
 
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4>Bem-vindo, {usuario?.email}</h4>
+        <h4>Olá, {nomeCompleto}</h4>
 
         <Dropdown align="end">
           <Dropdown.Toggle

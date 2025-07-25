@@ -1,3 +1,4 @@
+import { BsWhatsapp } from "react-icons/bs";
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiLogIn, FiUserPlus } from "react-icons/fi";
@@ -26,16 +27,21 @@ function LandingPage() {
         position: "relative",
       }}
     >
-      {/* Header */}
       <header className="bg-transparent py-4 shadow-sm">
         <div className="container d-flex justify-content-between align-items-center">
           <h3 className="fw-bold m-0">Greative</h3>
           <div className="d-flex gap-3">
-            <Link to="/login" className="btn btn-outline-light d-flex align-items-center fw-semibold">
+            <Link
+              to="/login"
+              className="btn btn-outline-light d-flex align-items-center fw-semibold"
+            >
               <FiLogIn size={20} />
               <span className="ms-2">Login</span>
             </Link>
-            <Link to="/registro" className="btn btn-light text-primary d-flex align-items-center fw-bold">
+            <Link
+              to="/registro"
+              className="btn btn-light text-primary d-flex align-items-center fw-bold"
+            >
               <FiUserPlus size={20} />
               <span className="ms-2">Criar Conta</span>
             </Link>
@@ -43,20 +49,33 @@ function LandingPage() {
         </div>
       </header>
 
-      {/* Hero */}
       <main className="flex-fill d-flex align-items-center text-center px-3">
         <div className="container">
-          <h1 className="display-4 fw-bold mb-3">Transforme seu espaço com tecnologia inteligente</h1>
+          <h1 className="display-4 fw-bold mb-3">
+            Transforme seu espaço com tecnologia inteligente
+          </h1>
           <p className="lead mb-4 mx-auto" style={{ maxWidth: "600px" }}>
-            Monitore temperatura, umidade, amônia e muito mais com dashboards intuitivos e análises em tempo real.
+            Monitore temperatura, umidade, amônia e muito mais com dashboards
+            intuitivos e análises em tempo real.
           </p>
-          <button onClick={handleAgendar} className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill">
-            Agendar Demonstração
-          </button>
+          <div className="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <button
+              onClick={handleAgendar}
+              className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill"
+            >
+              Agendar Demonstração
+            </button>
+
+            <Link
+              to="/orcamento"
+              className="btn btn-light btn-lg fw-bold px-5 shadow rounded-pill text-decoration-none"
+            >
+              Solicitar Orçamento
+            </Link>
+          </div>
         </div>
       </main>
 
-      {/* Destaques */}
       <section className="container my-5 text-center">
         <div className="row g-4">
           <div className="col-md-4">
@@ -90,19 +109,28 @@ function LandingPage() {
           <div className="row g-4">
             <div className="col-md-4">
               <div className="p-3 border rounded">
-                <p>“Simplesmente revolucionário! Hoje tomo decisões com base em dados confiáveis.”</p>
+                <p>
+                  “Simplesmente revolucionário! Hoje tomo decisões com base em
+                  dados confiáveis.”
+                </p>
                 <strong>— João L., Produtor</strong>
               </div>
             </div>
             <div className="col-md-4">
               <div className="p-3 border rounded">
-                <p>“Acesso fácil pelo celular e suporte excelente. Recomendo muito!”</p>
+                <p>
+                  “Acesso fácil pelo celular e suporte excelente. Recomendo
+                  muito!”
+                </p>
                 <strong>— Carla M., Técnica</strong>
               </div>
             </div>
             <div className="col-md-4">
               <div className="p-3 border rounded">
-                <p>“A solução perfeita para controlar o ambiente dos meus animais.”</p>
+                <p>
+                  “A solução perfeita para controlar o ambiente dos meus
+                  animais.”
+                </p>
                 <strong>— Sérgio A., Zootecnista</strong>
               </div>
             </div>
@@ -115,9 +143,21 @@ function LandingPage() {
         <h2 className="text-center fw-bold mb-4">Perguntas Frequentes</h2>
         <div className="accordion" id="faqAccordion">
           {[
-            { pergunta: "Preciso de internet para usar?", resposta: "Sim, é necessário ter uma conexão com a internet para enviar os dados em tempo real." },
-            { pergunta: "Funciona em áreas rurais?", resposta: "Sim! Basta ter conexão com a internet via Wi-Fi ou 4G." },
-            { pergunta: "Qual o custo mensal?", resposta: "Temos planos a partir de R$39,90. Você escolhe conforme sua necessidade." }
+            {
+              pergunta: "Preciso de internet para usar?",
+              resposta:
+                "Sim, é necessário ter uma conexão com a internet para enviar os dados em tempo real.",
+            },
+            {
+              pergunta: "Funciona em áreas rurais?",
+              resposta:
+                "Sim! Basta ter conexão com a internet via Wi-Fi ou 4G.",
+            },
+            {
+              pergunta: "Qual o custo mensal?",
+              resposta:
+                "Temos planos a partir de R$39,90. Você escolhe conforme sua necessidade.",
+            },
           ].map((item, index) => (
             <div className="accordion-item" key={index}>
               <h2 className="accordion-header">
@@ -131,7 +171,11 @@ function LandingPage() {
                   {item.pergunta}
                 </button>
               </h2>
-              <div id={`collapse${index}`} className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div
+                id={`collapse${index}`}
+                className="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion"
+              >
                 <div className="accordion-body">{item.resposta}</div>
               </div>
             </div>
@@ -142,15 +186,24 @@ function LandingPage() {
       {/* Rodapé */}
       <footer className="bg-dark text-white text-center py-4 mt-auto">
         <div className="container">
-          <p className="mb-1">&copy; {new Date().getFullYear()} Greative. Todos os direitos reservados.</p>
+          <p className="mb-1">
+            &copy; {new Date().getFullYear()} Greative. Todos os direitos
+            reservados.
+          </p>
           <small>
-            <a href="/privacidade" className="text-white text-decoration-underline me-2">Política de Privacidade</a>
-            <a href="/termos" className="text-white text-decoration-underline">Termos de Uso</a>
+            <a
+              href="/privacidade"
+              className="text-white text-decoration-underline me-2"
+            >
+              Política de Privacidade
+            </a>
+            <a href="/termos" className="text-white text-decoration-underline">
+              Termos de Uso
+            </a>
           </small>
         </div>
       </footer>
 
-      {/* Botão flutuante WhatsApp */}
       <button
         onClick={handleContatoWhats}
         style={{
@@ -164,9 +217,12 @@ function LandingPage() {
           height: "60px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
           zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <i className="bi bi-whatsapp text-white fs-3"></i>
+        <BsWhatsapp size={28} color="#fff" />
       </button>
     </div>
   );
